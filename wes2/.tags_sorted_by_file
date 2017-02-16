@@ -1,0 +1,29 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+Board	src/board.py	/^class Board:$/;"	c
+__init__	src/board.py	/^    def __init__(self, width, length):$/;"	m	class:Board
+get_position	src/board.py	/^    def get_position(self, x, y):$/;"	m	class:Board
+set_area	src/board.py	/^    def set_area(self, width, length):$/;"	m	class:Board
+InvalidX	src/position.py	/^class InvalidX(Exception):$/;"	c
+InvalidY	src/position.py	/^class InvalidY(Exception):$/;"	c
+Position	src/position.py	/^class Position:$/;"	c
+__init__	src/position.py	/^    def __init__(self, value):$/;"	m	class:InvalidX
+__init__	src/position.py	/^    def __init__(self, value):$/;"	m	class:InvalidY
+__init__	src/position.py	/^    def __init__(self, x, y):$/;"	m	class:Position
+__str__	src/position.py	/^    def __str__(self):$/;"	m	class:InvalidX	file:
+__str__	src/position.py	/^    def __str__(self):$/;"	m	class:InvalidY	file:
+valid	src/position.py	/^    def valid(self, x, y):$/;"	m	class:Position
+TestBoard	test/test_board.py	/^class TestBoard(unittest.TestCase):$/;"	c
+setUp	test/test_board.py	/^    def setUp(self):$/;"	m	class:TestBoard
+test_get_inexistent_terrain	test/test_board.py	/^    def test_get_inexistent_terrain(self):$/;"	m	class:TestBoard
+test_get_terrain	test/test_board.py	/^    def test_get_terrain(self):$/;"	m	class:TestBoard
+test_import	test/test_board.py	/^    def test_import(self):$/;"	m	class:TestBoard
+TestPosition	test/test_position.py	/^class TestPosition(unittest.TestCase):$/;"	c
+setUp	test/test_position.py	/^    def setUp(self):$/;"	m	class:TestPosition
+test_create_position_with_lesser_than_1x_arg	test/test_position.py	/^    def test_create_position_with_lesser_than_1x_arg(self):$/;"	m	class:TestPosition
+test_create_position_with_lesser_than_1y_arg	test/test_position.py	/^    def test_create_position_with_lesser_than_1y_arg(self):$/;"	m	class:TestPosition
+test_import	test/test_position.py	/^    def test_import(self):$/;"	m	class:TestPosition
