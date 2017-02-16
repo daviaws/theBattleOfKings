@@ -1,8 +1,8 @@
 class Point:
-	"""
-	A basic type that specifies a point in a bidimensional space
-	Must be initialized with int arguments x and y
-	"""
+    """
+    A basic type that specifies a point in a bidimensional space
+    Must be initialized with int arguments x and y
+    """
 
     def __init__(self, x, y):
         self._x = x
