@@ -1,4 +1,5 @@
 from src.basics.point import Point
+from src.abstractions.allocable import Allocable
 
 class InvalidX(Exception):
     
@@ -16,7 +17,7 @@ class InvalidY(Exception):
     def __str__(self):
         return repr("'{}' is lesser than 1".format(self.value))
 
-class Position(Point):
+class Position(Point, Allocable):
     """
     A extension of point
     Must be initialized with int arguments x and y bigger than 0
@@ -24,6 +25,7 @@ class Position(Point):
     def __init__(self, x, y):
         self.valid(x, y)
         Point.__init__(self, x, y)
+        Allocable.__init__(self)
 
     def valid(self, x, y):
         """
