@@ -1,22 +1,10 @@
 from terrain import Terrain
 from src.abstractions.allocable import Allocable
+from src.abstractions.walkable import Walkable
 
-class WalkableTerrain(Terrain, Allocable):
+class WalkableTerrain(Terrain, Walkable, Allocable):
 
-    def __init__(self, name, modifier):
+    def __init__(self, name, speed, modifier):
         Allocable.__init__(self)
-        self.modifier = modifier
-
-    def walk(self, walker):
-        #allocate
-        #success
-        ##apply modifiers
-        #fail
-        ##return occuper
-        pass
-
-    def exit(self):
-        #deply modifiers
-        #deallocate
-        ##return occuper
-        pass
+        Walkable.__init__(self, speed)
+    

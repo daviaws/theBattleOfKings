@@ -1,7 +1,7 @@
 import unittest
 from src.abstractions.allocable import Allocable
 
-class TestWalkable(unittest.TestCase):
+class TestOccupable(unittest.TestCase):
 
     def test_import(self):
         assert Allocable
