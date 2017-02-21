@@ -5,15 +5,20 @@ class Board:
     The limit-point must have a method calculate_area() that returns a list of the points type
     """
 
-    def __init__(self, limit):
+    def __init__(self):
         self.area = []
-        self.set_area(limit)
 
-    def set_area(self, limit):
+    def __str__(self):
+        return str(self.__repr__())
+
+    def __repr__(self):
+        return self.area
+
+    def set_area(self, area):
         """
         Uses the calculate_area() from the limit-point to initialize the area attribute
         """
-        self.area = limit.calculate_area()
+        self.area = area
 
     def get_position(self, position):
         """
@@ -22,7 +27,7 @@ class Board:
         Return the position in area if asserted
         Return None if don't assert
         """
-        for compare_position in self.area:
-            if position == compare_position:
-                return position
+        for square in self.area:
+            if position == square:
+                return square
         return None

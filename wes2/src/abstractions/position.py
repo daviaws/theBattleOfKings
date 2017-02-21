@@ -27,6 +27,9 @@ class Position(Point, Allocable):
         Point.__init__(self, x, y)
         Allocable.__init__(self)
 
+    def __str__(self):
+        return '({}, {})'.format(Point.__str__(self), Allocable.__str__(self))
+
     def valid(self, x, y):
         """
         Test if arguments x and y are bigger than 0

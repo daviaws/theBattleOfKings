@@ -1,11 +1,14 @@
 class Walker:
 
-    def __init__(self, max_energy, rested):
+    def __init__(self, max_energy, rested=True):
         self._max_energy = max_energy
         if rested:
             self._energy = max_energy
         else:
             self._energy = 0
+
+    def __str__(self):
+        return "({}/{})".format(self._energy, self._max_energy)
 
     def get_max_energy(self):
         return self._max_energy
