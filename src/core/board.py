@@ -1,10 +1,14 @@
 class Board:
 
-	def __init__( self ):
-		self.terrain = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+    def __init__( self, terrains=None ):
+        if terrains:
+            self.terrains = terrains
+        else:
+            self.terrains = {}
 
-	def contain_terrain( self, terrain ):
-		return True
+    def contain_terrain( self, terrain ):
+        return terrain in self.terrains
 
-	def retrieve_terrain_info( self, terrain ):
-		return object()
+    def retrieve_terrain_info( self, terrain ):
+        if self.contain_terrain( terrain ):
+            return self.terrains[terrain]
