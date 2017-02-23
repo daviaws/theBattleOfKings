@@ -1,0 +1,1 @@
+PYTHONPATH=src:/usr/lib/python3.4:/usr/lib/python3.4/plat-x86_64-linux-gnu:/usr/lib/python3.4/lib-dynload:/usr/local/lib/python3.4/dist-packages:/usr/lib/python3/dist-packages python3 -m unittest discover

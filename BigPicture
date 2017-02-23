@@ -1,0 +1,24 @@
+Jogo baseado em turno
+
+Existe um tabuleiro, dividido em regiões.
+Existem tropas que podem se movimentar pelas regiões, e batalhar entre si.
+Existem construções que geram recursos, e construções para recrutar tropas.
+Existem jogadores que batalham entre si.
+O objetivo do jogo é matar os reis inimigos.
+
+Movimentação:
+
+Tropa:
+Cada tropa possui uma quantidade de energia máxima e uma quantidade de energia.
+Enquanto uma tropa tiver energia, ela pode se movimentar.
+Tropas aliadas não são obstáculos na movimentação.
+Tropas inimigas são obstáculo na movimentação.
+
+Terreno:
+Existem terrenos andáveis e não andáveis.
+Cada tipo de terreno andável possui um custo de movimentação próprio.
+Na movimentação, o custo de movimentação do terreno será deduzido da energia total da tropa.
+Duas tropas não podem ocupar o mesmo terreno.
+
+Turno:
+Cada tropa restaura sua energia ao final do turno.

@@ -1,0 +1,36 @@
+Package:
+
+Core:
+
+Game
+
+Board
+	SelecaoDeTerreno:
+		informacoes?
+			sim:
+				possiveismovimentos(terreno, energia_da_tropa)
+				return possiveis_movimentos
+			não:
+				return Nada
+
+Terrain
+
+Jogo -> tabuleiro.esta_ocupado?
+Jogo -> tabuleiro.quem?
+Jogo -> tabuleiro.possiveis_movimentos_de_quem?
+
+####
+
+LocationInfo(occupied, terrain, who)
+Moviment([{terrain, cost}])
+
+Game.selection(terrain):
+	location_info = board.retrieve_location_info(terrain) #LocationInfo
+	se location_info.occupied:
+		moviments = board.possible_movement(location_info.who) #List: Moviment
+	broadcast(location_info, moviments)
+
+Game.movement(moviment, troop):
+	troop.move(moviment)
+
+
