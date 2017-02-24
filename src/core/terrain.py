@@ -5,9 +5,6 @@ class Terrain:
         self.cost = cost
         self.occupant = occupant
 
-    def info( self ):
-        return self.cost
-
     def occupied( self ):
         return self.occupant is not None
 

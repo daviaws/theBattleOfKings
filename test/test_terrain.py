@@ -25,12 +25,6 @@ class TestTerrain( unittest.TestCase ):
     def test_default_cost( self ):
         self.assertEqual( self.terrain1.cost, DEFAULT_COST )
 
-    def test_info( self ):
-        self.assertIsNotNone( self.terrain.info() )
-
-    def test_info_equals( self ):
-        self.assertEqual( self.terrain.info(), self.cost )
-
     def test_occupied( self ):
         self.assertTrue( self.terrain.occupied() )
 
