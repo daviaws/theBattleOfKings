@@ -15,3 +15,4 @@ class Board:
         if self.contain_terrain( terrain ):
             terrain = self.terrains[terrain]
             return Info( terrain, terrain.occupant )
+        return None
