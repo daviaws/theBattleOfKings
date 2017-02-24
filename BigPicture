@@ -16,7 +16,9 @@ Tropas inimigas são obstáculo na movimentação.
 
 Terreno:
 Existem terrenos andáveis e não andáveis.
+Terrenos andáveis podem alocar tropas.
 Cada tipo de terreno andável possui um custo de movimentação próprio.
+Por padrão o custo mínimo é 1.
 Na movimentação, o custo de movimentação do terreno será deduzido da energia total da tropa.
 Duas tropas não podem ocupar o mesmo terreno.
 

@@ -21,14 +21,14 @@ Jogo -> tabuleiro.possiveis_movimentos_de_quem?
 
 ####
 
-LocationInfo(occupied, terrain, who)
+LocationInfo(occupied, terrain, troop)
 Moviment([{terrain, cost}])
 
-Game.selection(terrain):
+Game.select(terrain):
 	location_info = board.retrieve_location_info(terrain) #LocationInfo
 	broadcast(location_info)
 	if location_info.occupied:
-		moviments = board.possible_movement(location_info.who) #List: Moviment
+		moviments = board.possible_movement(location_info.troop) #List: Moviment
 		broadcast(moviments)
 
 Game.movement(moviment, troop):#Moviment, Troop
