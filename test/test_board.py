@@ -1,10 +1,15 @@
 import unittest
+
 from core.board import Board
+from core.terrain import Terrain
+from core.info import Info
 
 class TestBoard( unittest.TestCase ):
 
     def setUp( self ):
-        self.terrains = { "my_terrain_0": (1,1), "my_terrain_1": (2,2) }
+        terrain0 = Terrain("my_terrain_0", 1)
+        terrain1 = Terrain("my_terrain_1")
+        self.terrains = { terrain0.label: terrain0, terrain1.label: terrain1 }
         self.board = Board(self.terrains)
 
     def test_create_board( self ):
@@ -16,25 +21,32 @@ class TestBoard( unittest.TestCase ):
 
     def test_contain_equal_terrains( self ):
         for terrain in self.terrains:   
-            self.assertEqual( self.board.retrieve_terrain_info( terrain ), self.terrains[terrain] )
+            self.assertEqual( self.board.terrains[terrain], self.terrains[terrain] )
 
-    def test_retrieve_terrain_info( self ):
+    def test_retrieve_retrieve_info( self ):
         for terrain in self.terrains:
-            info = self.board.retrieve_terrain_info( terrain )
+            info = self.board.retrieve_info( terrain )
             self.assertIsNotNone( info )
 
-    def test_retrieve_inexistent_terrain_info( self ):
+    def test_retrieve_inexistent_retrieve_info( self ):
         terrain = "my_inexistent_terrain"
-        self.assertIsNone( self.board.retrieve_terrain_info(terrain) )
+        self.assertIsNone( self.board.retrieve_info(terrain) )
 
-    def test_retrieve_terrain_info_equals_instance( self ):
-        instance_of = tuple
+    def test_retrieve_info_equals_instance( self ):
+        instance_of = Info
         for terrain in self.terrains:
-            info = self.board.retrieve_terrain_info( terrain )
+            info = self.board.retrieve_info( terrain )
             self.assertIsInstance( info , instance_of )
 
+    def test_retrieve_infos_terrain( self ):
+        for terrain in self.terrains:
+            info = self.board.retrieve_info( terrain )
+            self.assertEqual( info.terrain , self.terrains[terrain] )
 
+    def test_retrieve_infos_occupant( self ):
+        for terrain in self.terrains:
+            info = self.board.retrieve_info( terrain )
+            self.assertEqual( info.occupant , self.terrains[terrain].occupant )
 
 if __name__ == '__main__':
     unittest.main()
-    

@@ -1,3 +1,5 @@
+from core.info import Info
+
 class Board:
 
     def __init__( self, terrains=None ):
@@ -9,6 +11,7 @@ class Board:
     def contain_terrain( self, terrain ):
         return terrain in self.terrains
 
-    def retrieve_terrain_info( self, terrain ):
+    def retrieve_info( self, terrain ):
         if self.contain_terrain( terrain ):
-            return self.terrains[terrain]
+            terrain = self.terrains[terrain]
+            return Info( terrain, terrain.occupant )

@@ -1,4 +1,5 @@
 import unittest
+
 from core.terrain import Terrain
 
 DEFAULT_COST = 1
@@ -40,7 +41,7 @@ class TestTerrain( unittest.TestCase ):
         self.assertEqual( self.terrain.occupant, self.occupant )
 
     def test_occupy_many( self ):
-        for occupant in range(10):
+        for occupant in range(2):
             self.terrain.occupy( occupant )
             self.assertEqual( self.terrain.occupant, occupant )            
 
