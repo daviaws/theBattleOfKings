@@ -16,37 +16,37 @@ class TestBoard( unittest.TestCase ):
         self.assertEqual( self.board.terrains, self.terrains )
 
     def test_contain_terrains( self ):
-        for terrain in self.terrains:   
-            self.assertTrue( self.board.contain_terrain( terrain ) )
+        for label in self.terrains:   
+            self.assertTrue( self.board.contain_terrain( label ) )
 
     def test_contain_equal_terrains( self ):
-        for terrain in self.terrains:   
-            self.assertEqual( self.board.terrains[terrain], self.terrains[terrain] )
+        for label in self.terrains:   
+            self.assertEqual( self.board.terrains[label], self.terrains[label] )
 
     def test_retrieve_retrieve_info( self ):
-        for terrain in self.terrains:
-            info = self.board.retrieve_info( terrain )
+        for label in self.terrains:
+            info = self.board.retrieve_info( label )
             self.assertIsNotNone( info )
 
     def test_retrieve_inexistent_retrieve_info( self ):
-        terrain = "my_inexistent_terrain"
-        self.assertIsNone( self.board.retrieve_info(terrain) )
+        label = "my_inexistent_terrain"
+        self.assertIsNone( self.board.retrieve_info(label) )
 
     def test_retrieve_info_equals_instance( self ):
         instance_of = Info
-        for terrain in self.terrains:
-            info = self.board.retrieve_info( terrain )
+        for label in self.terrains:
+            info = self.board.retrieve_info( label )
             self.assertIsInstance( info , instance_of )
 
     def test_retrieve_infos_terrain( self ):
-        for terrain in self.terrains:
-            info = self.board.retrieve_info( terrain )
-            self.assertEqual( info.terrain , self.terrains[terrain] )
+        for label in self.terrains:
+            info = self.board.retrieve_info( label )
+            self.assertEqual( info.terrain , self.terrains[label] )
 
     def test_retrieve_infos_occupant( self ):
-        for terrain in self.terrains:
-            info = self.board.retrieve_info( terrain )
-            self.assertEqual( info.occupant , self.terrains[terrain].occupant )
+        for label in self.terrains:
+            info = self.board.retrieve_info( label )
+            self.assertEqual( info.occupant , self.terrains[label].occupant )
 
 if __name__ == '__main__':
     unittest.main()

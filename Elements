@@ -22,7 +22,7 @@ Jogo -> tabuleiro.possiveis_movimentos_de_quem?
 ####
 
 LocationInfo(occupied, terrain, troop)
-Moviment([{terrain, cost}])
+Moviment(terrain, cost)
 
 Game.select(terrain):
 	location_info = board.retrieve_location_info(terrain) #LocationInfo

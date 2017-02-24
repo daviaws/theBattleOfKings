@@ -11,8 +11,9 @@ class Board:
     def contain_terrain( self, terrain ):
         return terrain in self.terrains
 
-    def retrieve_info( self, terrain ):
-        if self.contain_terrain( terrain ):
-            terrain = self.terrains[terrain]
-            return Info( terrain, terrain.occupant )
+    def retrieve_info( self, label ):
+        if self.contain_terrain( label ):
+            terrain = self.terrains[label]
+            occupant = terrain.occupant
+            return Info( terrain, occupant )
         return None
