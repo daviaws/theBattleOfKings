@@ -2,6 +2,10 @@
 Node = (LABEL,)
 Edge = cost->
 
+dijkstra_path search from the shortest path between source and destiny
+it can be used with only a source to give all the shortest path reachable by source
+it also can receive a cutoff to calculate the paths with max_weight=cutoff
+
 In a cenary like this:
 
 (A, my_troop) 1-> (B,enemy)
@@ -14,13 +18,9 @@ In a cenary like this:
     |                      ^
     |1->(F,)--1->(G,)-----1|
 
-dijkstra_path search from the shortest path between source and destiny
-it can be used with only a source to give all the shortest path reachable by source
-it also can receive a cutoff to calculate the paths with max_weight=cutoff
-
 Enemies are obstacles to allies, so shortest paths cannot be calculated passing by nodes with enemies
 
-The valid moviments of my_troop with only dijkstra_path with a 2 max_weight will be:
+The valid moviments of my_troop with only dijkstra_path will be:
 {'A': 0, 'B': 1, 'C': 2, 'D': 2, 'E': 2, 'F': 1, 'G': 2}
 
 But we expect:
