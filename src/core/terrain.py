@@ -1,9 +1,13 @@
 class Terrain:
 
-    def __init__( self, label, cost=1, occupant=None):
+    def __init__( self, label, cost=1, occupant=None, adjacents=None):
         self.label = label
         self.cost = cost
         self.occupant = occupant
+        if adjacents:
+            self.adjacents = list(adjacents)
+        else:
+            self.adjacents = []
 
     def occupied( self ):
         return self.occupant is not None

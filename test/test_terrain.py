@@ -8,9 +8,10 @@ class TestTerrain( unittest.TestCase ):
 
     def setUp( self ):
         self.label = "g1"
+        self.adjacents = [1, 2, 3, 4]
         self.cost = 2
         self.occupant = 1
-        self.terrain = Terrain( self.label, self.cost, self.occupant)
+        self.terrain = Terrain( self.label, self.cost, self.occupant, self.adjacents)
         self.terrain1 = Terrain( self.label )
 
     def test_label( self ):
@@ -42,6 +43,15 @@ class TestTerrain( unittest.TestCase ):
     def test_unoccupy( self ):
         self.terrain.unoccupy()
         self.assertIsNone( self.terrain.occupant )
+
+    def test_adjacents_is_not_none( self ):
+        self.assertIsNotNone( self.terrain.adjacents )
+
+    def test_adjacents_is_list( self ):
+        self.assertIsInstance( self.terrain.adjacents, list )
+
+    def test_adjacents_equals( self ):
+        self.assertEqual( self.terrain.adjacents, self.adjacents )
 
 if __name__ == '__main__':
     unittest.main()
