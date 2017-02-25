@@ -48,5 +48,31 @@ class TestBoard( unittest.TestCase ):
             info = self.board.retrieve_info( label )
             self.assertEqual( info.occupant , self.terrains[label].occupant )
 
+    def test_create_graph( self ):
+        terrains = {}
+        nodes = []
+        edges = []
+        for i in range( 0, 100 ):
+            nodes.append(i)
+            if i == 0:
+                adjacents = [i+1]
+                edges.append( ( i, i+1 ) )
+            elif i == 99:
+                adjacents = [i-1]
+                edges.append( ( i, i-1 ) )
+            else:
+                edges.append( ( i, i-1 ) )
+                edges.append( ( i, i+1 ) )
+                adjacents = [i-1, i+1]
+            terrains[i] = Terrain( i, cost=i, adjacents=adjacents )
+        board = Board( terrains )
+        self.assertEqual( board.graph.nodes(), nodes )
+        self.assertEqual( sorted( board.graph.edges() ), sorted( edges ) )
+        for edge in edges:
+            weight = board.graph.get_edge_data( edge[0], edge[1] )[0]['weight']
+            self.assertEqual( terrains[edge[1]].cost, weight )
+
+    
+
 if __name__ == '__main__':
     unittest.main()
