@@ -2,6 +2,7 @@ import unittest
 
 from core.board import Board
 from core.terrain import Terrain
+from core.walker import Walker
 from core.info import Info
 
 class TestBoard( unittest.TestCase ):
@@ -72,7 +73,32 @@ class TestBoard( unittest.TestCase ):
             weight = board.graph.get_edge_data( edge[0], edge[1] )[0]['weight']
             self.assertEqual( terrains[edge[1]].cost, weight )
 
-    
+    def create_movement_board( self ):
+        self.terrain1 = Terrain( 1, adjacents=[2,6] )
+        self.terrain2 = Terrain( 2, adjacents=[2,3,4,5] )
+        self.terrain3 = Terrain( 3 )
+        self.terrain4 = Terrain( 4 )
+        self.terrain5 = Terrain( 5 )
+        self.terrain6 = Terrain( 6, adjacents=[7] )
+        self.terrain7 = Terrain( 7, adjacents=[5] )
+        self.terrains = {
+                            self.terrain1.label : self.terrain1,
+                            self.terrain2.label : self.terrain2,
+                            self.terrain3.label : self.terrain3,
+                            self.terrain4.label : self.terrain4,
+                            self.terrain5.label : self.terrain5,
+                            self.terrain6.label : self.terrain6,
+                            self.terrain7.label : self.terrain7,
+                        }
+        self.board = Board( self.terrains )
+
+    def test_calcule_of_movements( self ):
+        self.create_movement_board()
+        test_movements = {6: 1, 2: 1, 3: 2, 7: 2, 5: 2, 4: 2, 1: 0}
+        walker = Walker( 3, self.terrain1 )
+        info = self.board.retrieve_info( self.terrain1.label )
+        possible_movements = info.movements
+        self.assertEqual( possible_movements, test_movements )
 
 if __name__ == '__main__':
     unittest.main()

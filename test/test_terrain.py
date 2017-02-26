@@ -11,7 +11,8 @@ class TestTerrain( unittest.TestCase ):
         self.adjacents = [1, 2, 3, 4]
         self.cost = 2
         self.occupant = 1
-        self.terrain = Terrain( self.label, self.cost, self.occupant, self.adjacents)
+        self.terrain = Terrain( self.label, self.cost, self.adjacents)
+        self.terrain.occupy( self.occupant )
         self.terrain1 = Terrain( self.label )
 
     def test_label( self ):

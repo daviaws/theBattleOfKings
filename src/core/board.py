@@ -1,3 +1,4 @@
+import networkx
 from networkx import MultiDiGraph
 from core.info import Info
 
@@ -11,14 +12,17 @@ class Board:
         self.graph = MultiDiGraph()
         self.__populate_graph()
 
-    def terrain_cost( self, label ):
+    def __terrain_cost( self, label ):
         return self.terrains[label].cost
 
     def __populate_graph( self ):
         for src_label, terrain in self.terrains.items():
             for dst_label in terrain.adjacents:
-                weight = self.terrain_cost( dst_label )
+                weight = self.__terrain_cost( dst_label )
                 self.graph.add_edge(src_label, dst_label, weight=weight)
+
+    def __possible_movements( self, label, occupant ):
+        return networkx.single_source_dijkstra_path_length(self.graph, label, occupant.energy)
 
     def contain_terrain( self, label ):
         return label in self.terrains
@@ -27,5 +31,9 @@ class Board:
         if self.contain_terrain( label ):
             terrain = self.terrains[label]
             occupant = terrain.occupant
-            return Info( terrain, occupant )
+            if occupant:
+                movements = self.__possible_movements( label, occupant )
+            else:
+                movements = None
+            return Info( terrain, occupant, movements )
         return None
