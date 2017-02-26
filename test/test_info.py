@@ -17,7 +17,7 @@ class TestInfo( unittest.TestCase ):
     def test_assert_terrain( self ):
         self.assertIs( self.info.terrain, self.terrain )
 
-    def test_assert_occupant_is_none( self ):
+    def test_assert_occupant_is_none( self):
         self.assertIs( self.info.occupant, self.terrain.occupant )
 
     def test_assert_occupant( self ):

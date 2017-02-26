@@ -19,9 +19,9 @@ class Walker:
         terrain.occupy( self )
         self.terrain = terrain
 
-    def move( self, moviment ):
-        cost = moviment.cost
-        terrain = moviment.terrain
+    def move( self, movement ):
+        cost = movement.cost
+        terrain = movement.terrain
         if self.has_energy( cost ):
             if not terrain.occupied():
                 self.occupy( terrain )

@@ -20,7 +20,7 @@ In a cenary like this:
 
 Enemies are obstacles to allies, so shortest paths cannot be calculated passing by nodes with enemies
 
-The valid moviments of my_troop with only dijkstra_path will be:
+The valid movements of my_troop with only dijkstra_path will be:
 {'A': 0, 'B': 1, 'C': 2, 'D': 2, 'E': 2, 'F': 1, 'G': 2}
 
 But we expect:
@@ -29,11 +29,11 @@ But we expect:
 So, how can we get the expected result?
     #1 We need to get the first dijkstra_path result
     #2 See what nodes have troops
-    #3 Pass the nodes with troops and it costs to our container with final_valid_moviments
+    #3 Pass the nodes with troops and it costs to our container with final_valid_movements
     #4 Get a subgraph with all the dijkstra_path nodes from the original graph | The execution of dijkstra_path in a subgraph is at least 3x better than a copy of the original graph, and occupy less memory
     #5 Delete the nodes with troops
     #6 Calculate the new dijkstra_paths
-    #7 Merge the new dijkstra_paths with the final_valid_moviments
+    #7 Merge the new dijkstra_paths with the final_valid_movements
 
 '''
 
@@ -62,7 +62,7 @@ g.add_edge(F, G, weight=default_weight)
 g.add_edge(G, C, weight=default_weight)
 
 
-final_valid_moviments = {}
+final_valid_movements = {}
 
 #1
 start = datetime.now()
@@ -73,7 +73,7 @@ print(dijkstra)
 OBSTACLE = B
 
 #3
-final_valid_moviments[OBSTACLE] = dijkstra[OBSTACLE]
+final_valid_movements[OBSTACLE] = dijkstra[OBSTACLE]
 
 #4
 gsub = g.subgraph(dijkstra.keys())
@@ -85,7 +85,7 @@ gsub.remove_node(OBSTACLE)
 dijkstra = networkx.single_source_dijkstra_path_length(gsub, A)
 
 #7
-final_valid_moviments.update(dijkstra)
-print(final_valid_moviments)
+final_valid_movements.update(dijkstra)
+print(final_valid_movements)
 end = datetime.now()
 print("Duration: {}".format(end-start))

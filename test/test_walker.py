@@ -2,7 +2,7 @@ import unittest
 
 from core.walker import Walker
 from core.terrain import Terrain
-from core.moviment import Moviment
+from core.movement import Movement
 
 class TestWalker( unittest.TestCase ):
 
@@ -13,8 +13,8 @@ class TestWalker( unittest.TestCase ):
         self.energy1 = 3
         self.terrain_to_move = Terrain('to_move')
         self.energy_to_move = 4
-        self.moviment = Moviment( self.energy_to_move, self.terrain_to_move )
-        self.occupied_moviment = Moviment( self.energy_to_move, self.terrain1 )
+        self.movement = Movement( self.energy_to_move, self.terrain_to_move )
+        self.occupied_movement = Movement( self.energy_to_move, self.terrain1 )
         self.walker = Walker( self.energy, self.terrain )
         self.walker1 = Walker( self.energy1, self.terrain1 )
 
@@ -53,21 +53,21 @@ class TestWalker( unittest.TestCase ):
 
     def test_walker_move( self ):
         final_energy = self.walker.energy - self.energy_to_move
-        self.assertTrue( self.walker.move( self.moviment ) )
+        self.assertTrue( self.walker.move( self.movement ) )
         self.assertEqual( self.walker.energy, final_energy )
         self.assertIs( self.walker.terrain, self.terrain_to_move)
         self.assertIs( self.terrain_to_move.occupant, self.walker)
 
     def test_walker_move_without_energy( self ):
         final_energy = self.walker1.energy
-        self.assertFalse( self.walker1.move( self.moviment ) )
+        self.assertFalse( self.walker1.move( self.movement ) )
         self.assertEqual( self.walker1.energy, final_energy )
         self.assertIs( self.walker1.terrain, self.terrain1)
         self.assertIs( self.terrain1.occupant, self.walker1)
 
     def test_walker_move_occupied_terrain( self ):
         final_energy = self.walker.energy
-        self.assertFalse( self.walker.move( self.occupied_moviment ) )
+        self.assertFalse( self.walker.move( self.occupied_movement ) )
         self.assertEqual( self.walker.energy, final_energy )
         self.assertIs( self.walker.terrain, self.terrain)
         self.assertIs( self.terrain.occupant, self.walker)
