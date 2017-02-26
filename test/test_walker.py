@@ -55,6 +55,7 @@ class TestWalker( unittest.TestCase ):
         final_energy = self.walker.energy - self.energy_to_move
         self.assertTrue( self.walker.move( self.movement ) )
         self.assertEqual( self.walker.energy, final_energy )
+        self.assertIsNone( self.terrain.occupant )
         self.assertIs( self.walker.terrain, self.terrain_to_move)
         self.assertIs( self.terrain_to_move.occupant, self.walker)
 

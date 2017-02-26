@@ -17,6 +17,7 @@ class Walker:
 
     def occupy( self, terrain ):
         terrain.occupy( self )
+        self.terrain.unoccupy()
         self.terrain = terrain
 
     def move( self, movement ):
