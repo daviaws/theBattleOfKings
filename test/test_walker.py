@@ -6,18 +6,6 @@ from core.movement import Movement
 
 class TestWalker( unittest.TestCase ):
 
-    def setUp( self ):
-        self.terrain = Terrain('my_test')
-        self.terrain1 = Terrain('my_test2')
-        self.energy = 7
-        self.energy1 = 3
-        self.terrain_to_move = Terrain('to_move')
-        self.energy_to_move = 4
-        self.movement = Movement( self.energy_to_move, self.terrain_to_move )
-        self.occupied_movement = Movement( self.energy_to_move, self.terrain1 )
-        self.walker = Walker( self.energy, self.terrain )
-        self.walker1 = Walker( self.energy1, self.terrain1 )
-
     def test_walker_energy_equal( self ):
         walkerEnergy = 7
         walker = Walker( energy = walkerEnergy, terrain = Terrain( 'terrain' ) )
