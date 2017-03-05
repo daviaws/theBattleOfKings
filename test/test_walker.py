@@ -22,7 +22,9 @@ class TestWalker( unittest.TestCase ):
         self.assertIsNotNone( self.walker.energy )
 
     def test_walker_energy_equal( self ):
-        self.assertEqual( self.walker.energy, self.energy )
+        walkerEnergy = 7;
+        walker = Walker( energy = walkerEnergy, terrain = Terrain( 'terrain' ) )
+        self.assertEqual( self.walker.energy, walkerEnergy )
 
     def test_walker_has_energy( self ):
         self.assertTrue( self.walker.has_energy(self.energy_to_move) )
