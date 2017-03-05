@@ -36,6 +36,10 @@ class TestTerrain( unittest.TestCase ):
     def test_occupy( self ):
         self.assertEqual( self.terrain.occupant, self.occupant )
 
+    def test_is_occupied_by( self ):
+        self.assertTrue( self.terrain.is_occupied_by( self.occupant ) )
+        self.assertFalse( self.terrain.is_occupied_by( None ) )
+
     def test_occupy_many( self ):
         for occupant in range(2):
             self.terrain.occupy( occupant )
