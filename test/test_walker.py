@@ -47,10 +47,15 @@ class TestWalker( unittest.TestCase ):
         self.assertEqual( walker.energy, expected_energy )
 
     def test_walker_rest( self ):
-        energy = self.walker.energy
-        self.walker.waste_energy(self.energy_to_move)
-        self.walker.rest()
-        self.assertEqual( self.walker.energy, energy )
+        init_energy = 4
+        waste_energy = 2
+        expected_energy = init_energy
+
+        walker = Walker( energy = init_energy, terrain = Terrain( 'terrain' ) )
+        walker.waste_energy( waste_energy )
+        walker.rest()
+
+        self.assertEqual( walker.energy, expected_energy )
 
     def test_walker_is_in_terrain( self ):
         self.assertIs( self.walker.terrain, self.terrain)
