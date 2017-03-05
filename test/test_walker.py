@@ -58,8 +58,10 @@ class TestWalker( unittest.TestCase ):
         self.assertEqual( walker.energy, expected_energy )
 
     def test_walker_is_in_terrain( self ):
-        self.assertIs( self.walker.terrain, self.terrain)
-        self.assertIs( self.terrain.occupant, self.walker)
+        init_energy = 4
+        terrain = Terrain( 'terrain' )
+        walker = Walker( energy = init_energy, terrain = terrain )
+        self.assertTrue( terrain.is_occupied_by( walker ) )
 
 #    def test_walker_occupy_terrain( self ):      
 #        self.walker.occupy( self.terrain_to_move )
