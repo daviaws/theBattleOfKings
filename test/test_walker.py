@@ -45,12 +45,6 @@ class TestWalker( unittest.TestCase ):
 
         self.assertEqual( walker.energy, expected_energy )
 
-    def test_walker_is_in_terrain( self ):
-        init_energy = 4
-        terrain = Terrain( 'terrain' )
-        walker = Walker( energy = init_energy, terrain = terrain )
-        self.assertTrue( terrain.is_occupied_by( walker ) )
-
     def test_walker_move( self ):
         origTerrain = Terrain( 'terrain_01' )
         destTerrain = Terrain( 'terrain_02' )
