@@ -17,3 +17,9 @@ class Terrain:
 
     def unoccupy( self ):
         self.occupant = None
+
+    def is_occupied_by( self, occupant ):
+        if self.occupied():
+            return self.occupant == occupant
+
+        return False
