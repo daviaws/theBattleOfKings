@@ -9,7 +9,7 @@ class Walker:
     energy : int
         This will set the max energy and the actual energy of walker.
 
-    terrain : Terrain instance
+    terrain : core.terrain.Terrain instance
         Terrain that will be occupied by walker.
     """
 
