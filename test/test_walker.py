@@ -46,10 +46,10 @@ class TestWalker( unittest.TestCase ):
         self.assertIs( self.walker.terrain, self.terrain)
         self.assertIs( self.terrain.occupant, self.walker)
 
-    def test_walker_occupy_terrain( self ):      
-        self.walker.occupy( self.terrain_to_move )
-        self.assertIs( self.walker.terrain, self.terrain_to_move)
-        self.assertIs( self.terrain_to_move.occupant, self.walker)
+#    def test_walker_occupy_terrain( self ):      
+#        self.walker.occupy( self.terrain_to_move )
+#        self.assertIs( self.walker.terrain, self.terrain_to_move)
+#        self.assertIs( self.terrain_to_move.occupant, self.walker)
 
     def test_walker_move( self ):
         final_energy = self.walker.energy - self.energy_to_move
