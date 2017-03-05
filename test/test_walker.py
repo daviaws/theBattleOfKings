@@ -96,5 +96,14 @@ class TestWalker( unittest.TestCase ):
 
         self.assertTrue( walkerEnemy.is_at_terrain( destTerrain ) )
 
+    def test_is_at_terrain( self ):
+        myTerrain = Terrain( 'terrain_01' )
+        otherTerrain = Terrain( 'terrain_02' )
+        walker = Walker( energy = 100, terrain = myTerrain )
+
+        self.assertTrue( walker.is_at_terrain( myTerrain ) )
+        self.assertFalse( walker.is_at_terrain( otherTerrain ) )
+        self.assertFalse( walker.is_at_terrain( None ) )
+
 if __name__ == '__main__':
     unittest.main()
