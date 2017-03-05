@@ -90,3 +90,16 @@ class Walker:
                 self.waste_energy( cost )
                 return True
         return False
+
+    def is_at_terrain( self, terrain ):
+        """Check if walker are at terrain.
+
+        Parameters
+        ----------
+        terrain : core.terrain.Terrain
+
+        Returns bool
+        """
+        return terrain != None and\
+               terrain == self.terrain and\
+               terrain.is_occupied_by( self )
