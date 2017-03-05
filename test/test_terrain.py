@@ -39,7 +39,7 @@ class TestTerrain( unittest.TestCase ):
     def test_occupy_many( self ):
         for occupant in range(2):
             self.terrain.occupy( occupant )
-            self.assertEqual( self.terrain.occupant, occupant )            
+            self.assertEqual( self.terrain.occupant, occupant )
 
     def test_unoccupy( self ):
         self.terrain.unoccupy()
