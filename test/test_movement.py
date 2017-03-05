@@ -20,17 +20,8 @@ class TestMovement( unittest.TestCase ):
         with self.assertRaises( TypeError ):
             Movement( 0, None )
 
-    def test_movement_cost( self ):
-        self.assertIsNotNone( self.movement.cost )
-
     def test_movement_cost_equals( self ):
         self.assertEqual( self.movement.cost, self.cost )
-
-    def test_movement_terrain_not_none( self ):
-        self.assertIsNotNone( self.movement.terrain )
-
-    def test_movement_terrain( self ):
-        self.assertIsInstance( self.movement.terrain, Terrain )
 
     def test_movement_terrain_equal( self ):
         self.assertIs( self.movement.terrain, self.terrain )
