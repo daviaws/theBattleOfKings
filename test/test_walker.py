@@ -31,7 +31,11 @@ class TestWalker( unittest.TestCase ):
         self.assertTrue( walker.has_energy( 4 ) )
 
     def test_walker_dont_have_energy( self ):
-        self.assertFalse( self.walker1.has_energy(self.energy_to_move) )
+        walker = Walker( energy = 4, terrain = Terrain( 'terrain' ) )
+        self.assertFalse( walker.has_energy( 5 ) )
+        self.assertFalse( walker.has_energy( 6 ) )
+        self.assertFalse( walker.has_energy( 7 ) )
+        self.assertFalse( walker.has_energy( 8 ) )
 
     def test_walker_waste_energy( self ):
         energy = self.walker.energy
