@@ -10,16 +10,6 @@ class TestMovement( unittest.TestCase ):
         self.terrain = Terrain('my_test')
         self.movement = Movement( self.cost, self.terrain )
 
-    def test_movement_invalid_constrution( self ):
-        with self.assertRaises( TypeError ):
-            Movement( None, None )
-
-        with self.assertRaises( TypeError ):
-            Movement( None, Terrain( "terrain_01" ) )
-
-        with self.assertRaises( TypeError ):
-            Movement( 0, None )
-
     def test_movement_cost( self ):
         self.assertEqual( self.movement.cost, self.cost )
 
